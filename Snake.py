@@ -56,7 +56,7 @@ STEP = 20
 STARTING_POSITION_X = 400
 STARTING_POSITION_Y = 300
 change_direction = RIGHT
-INITIAL_SNAKE_LENGTH = 4
+INITIAL_LENGTH = 4
 
 pygame.display.set_caption('Snake')
 screen = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
@@ -222,7 +222,7 @@ def draw_border():
 snake_head = Snake_head(STARTING_POSITION_X, STARTING_POSITION_Y, RIGHT)
 all_sprites.add(snake_head)
 
-for segment in range(1, INITIAL_SNAKE_LENGTH):
+for segment in range(1, INITIAL_LENGTH):
     tail_segment = Snake_tail((snake_head.rect.x - segment * BLOCK_SIZE), snake_head.rect.y, snake_head.direction)
     all_sprites.add(tail_segment)
     tail.add(tail_segment)
@@ -329,10 +329,9 @@ while running:
 
         change_direction = RIGHT
         snake_head = Snake_head(STARTING_POSITION_X, STARTING_POSITION_Y, RIGHT)
-        print (snake_head.direction)
         all_sprites.add(snake_head)
 
-        for segment in range(1, INITIAL_SNAKE_LENGTH):
+        for segment in range(1, INITIAL_LENGTH):
             tail_segment = Snake_tail((snake_head.rect.x - segment * BLOCK_SIZE), snake_head.rect.y, snake_head.direction)
             all_sprites.add(tail_segment)
             tail.add(tail_segment)
